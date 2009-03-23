@@ -1,0 +1,19 @@
+If you are using "trac":http://trac.edgewall.org/ and you want to display ticket changes on "Campfire":http://www.campfirenow.com/ here is a handy <strike>hack</strike> plugin.
+
+Here is a juicy screenshot demonstrating how it looks like.
+
+!http://static.nanalegumene.net/stuff/trac-campfire.png!
+
+If you'd rather use IRC instead of Campfire you might want to try out the handy "irccat":http://github.com/RJ/irccat/tree/master which is "notoriously used by the Last.fm development teams":http://www.metabrew.com/article/how-we-use-irc-at-lastfm/ instead. This Campfire plugin is actually only a slight change from the irccat trac plugin.
+
+So here’s the gist. You will need to install "Pinder":http://dev.oluyede.org/pinder/doc.html, a Campfire listener written in Python. It should be as easy as:
+
+<pre>$ easy_install pinder</pre>
+
+Then download or <code>git clone</code> the "Campfire trac listener plugin on github":http://github.com/edouard/campfire-trac-listener/tree/master.
+
+You will need to have "setuptools":http://peak.telecommunity.com/DevCenter/setuptools installed. (To install setuptools, download the bootstrap module "ez_setup.py":http://peak.telecommunity.com/dist/ez_setup.py and execute: <code>$ python ez_setup.py</code>)
+
+Now edit <code>campfirelistener/campfirelistener.py</code> to your taste. Especially, you'll need to set up the Campfire subdomain (something like <code>subdomain.campfirenow.com</code>), the Campfire room, and the Campfire username and password (as you can see my Campfire wonderbot is named Hector). When it's all done run <code>python setup.py bdist_egg</code> to build the egg.
+
+<code>setup.py</code> will create several subdirectories. The <code>TracCampfireListener-0.1-py2.5.egg</code> file is located in the <code>dist</code> directory. Copy it to the <code>plugins</code> directory of your local trac project folder (<code>/var/lib/trac/your_project/plugins</code> for instance). Chmod it and restart Apache for trac to use the plugin. That should be it.
