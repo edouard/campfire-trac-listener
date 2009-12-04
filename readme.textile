@@ -2,7 +2,7 @@ If you are using "trac":http://trac.edgewall.org/ and you want to display ticket
 
 Here is a juicy screenshot demonstrating how it looks like.
 
-!http://static.nanalegumene.net/stuff/trac-campfire.png!
+!http://s3.amazonaws.com:80/edouard.baconfile.com/trac-campfire.png!
 
 If you'd rather use IRC instead of Campfire you might want to try out the handy "irccat":http://github.com/RJ/irccat/tree/master which is "notoriously used by the Last.fm development teams":http://www.metabrew.com/article/how-we-use-irc-at-lastfm/ instead. This Campfire plugin is actually only a slight change from the irccat trac plugin.
 
