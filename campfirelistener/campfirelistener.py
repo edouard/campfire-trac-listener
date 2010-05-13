@@ -16,12 +16,12 @@ class CampfireListener(Component):
 
     def _sendText(self, ticketid, text):
         try:
-            c = pinder.Campfire(subdomain, apiToken)
-            room = c.room(roomId)
-            room.speak("%s: ticket #%i (http://%s%s/ticket/%i) %s" % (prefix, tracfqdn, projectPath, ticketid, text))
+            c = pinder.Campfire(self.subdomain, self.apiToken)
+            room = c.room(self.roomId)
+            room.speak("%s: ticket #%i (http://%s%s/ticket/%i) %s" % (self.prefix, ticketid, self.tracfqdn, self.projectPath, ticketid, text))
 
         except:
-            print "Unexpected error:", sys.exc_info()[0]
+            self.env.log.error("Unexpected error: %s" % (sys.exc_info()[1]))
             return
 
     def ticket_created(self, ticket):
@@ -32,4 +32,3 @@ class CampfireListener(Component):
 
     def ticket_deleted(self, ticket):
         self._sendText(ticket.id, "Ticket deleted")
-
