@@ -8,7 +8,7 @@ Here is a juicy screenshot demonstrating how it looks like.
 
 If you'd rather use IRC instead of Campfire you might want to try out the handy "irccat":http://github.com/RJ/irccat/tree/master which is "notoriously used by the Last.fm development teams":http://www.metabrew.com/article/how-we-use-irc-at-lastfm/ instead. This Campfire plugin is actually only a slight change from the irccat trac plugin.
 
-h1 Installation
+h1. Installation
 So here’s the gist. You will need to install "Pinder":http://dev.oluyede.org/pinder/doc.html, a Campfire listener written in Python. It should be as easy as:
 
 <pre>$ easy_install pinder</pre>
