@@ -23,6 +23,7 @@ If this installs successfully, you are ready to begin configuration.
 h1 Configuration
 Put the following into your <code>trac.ini</code> file:
 <code>
+<pre>
 [campfire]
 prefix = Project Name (Typically)
 path = /projects/project
@@ -30,6 +31,7 @@ trachost = trac.yourhost.com
 subdomain = campfire_subdomain
 apitoken = yourCampfireAPIToken
 roomid = RoomID
+</pre>
 </code>
 You can find your room ID at the tail end of the URL when you are in your chat room.
 
