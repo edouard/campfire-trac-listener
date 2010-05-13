@@ -2,15 +2,23 @@ import sys
 import pinder
 from trac.core import *
 from trac.ticket.api import ITicketChangeListener
+from trac.config import Option, IntOption, ListOption, BoolOption
 
 class CampfireListener(Component):
     implements(ITicketChangeListener)
+    
+    prefix = Option('campfire', 'prefix', '')
+    projectPath = Option('campfire', 'path', '')
+    tracfqdn = Option('campfire', 'trachost', '')
+    subdomain = Option('campfire', 'subdomain', '')
+    apiToken = Option('campfire', 'apitoken', '')
+    roomId = Option('campfire', 'roomid', '')    
 
     def _sendText(self, ticketid, text):
         try:
-            c = pinder.Campfire('SUBDOMAIN', 'API TOKEN')
-            room = c.room('ROOM ID')
-            room.speak("Trac: ticket #%i (http://trac.YOURDOMAIN.com/projects/PROJECT/ticket/%i) %s" % (ticketid, ticketid, text))
+            c = pinder.Campfire(subdomain, apiToken)
+            room = c.room(roomId)
+            room.speak("%s: ticket #%i (http://%s%s/ticket/%i) %s" % (prefix, tracfqdn, projectPath, ticketid, text))
 
         except:
             print "Unexpected error:", sys.exc_info()[0]
